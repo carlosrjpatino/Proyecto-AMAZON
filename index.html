@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Buscador de ASIN</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 20px; }
+    input { padding: 8px; width: 200px; }
+    button { padding: 8px 12px; margin-left: 10px; }
+    iframe { width: 100%; height: 600px; border: 1px solid #ccc; margin-top: 20px; }
+  </style>
+</head>
+<body>
+  <h2>Buscar producto por ASIN</h2>
+  <input type="text" id="asinInput" placeholder="Ej. B09BD8FBF9">
+  <button onclick="buscarASIN()">Buscar</button>
+
+  <iframe id="amazonFrame" src=""></iframe>
+
+  <script>
+    function buscarASIN() {
+      const asin = document.getElementById("asinInput").value.trim();
+      const frame = document.getElementById("amazonFrame");
+      if (asin) {
+        frame.src = `https://www.amazon.com/dp/${asin}`;
+      } else {
+        alert("Por favor, ingresa un ASIN válido.");
+      }
+    }
+  </script>
+</body>
+</html>
